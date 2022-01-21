@@ -1,6 +1,4 @@
 const Order = require('../models/Order')
-
-
 const router = require('express').Router()
 
 
@@ -14,12 +12,15 @@ router.get('/',async(req,res)=>{
 })
 router.post('/',async(req,res)=>{
     try {
-        const newOrder = new Order(req.body)
-        const savedOrder = newOrder.save()
-        res.status(201).json(savedOrder)
+       const {address,email,username}= req.body
+
+       const newOrder = await Order.create({address,email,username})
+
+       res.status(201).json(newOrder)
     } catch (error) {
-        res.status(500).json(error)
+        res.status(400).json(error)
     }
+    
 })
 
 router.delete('/:id',async(req,res)=>{

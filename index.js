@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const authRoute = require('./routes/auth')
 const productRoute = require('./routes/product')
 const userRoute = require('./routes/User')
+const orderRoute = require('./routes/order')
 
 const PORT = 4000;
 
@@ -22,3 +23,4 @@ app.use(express.json())
 app.use('/api/auth',authRoute)
 app.use('/api/user',userRoute)
 app.use('/api/product',productRoute)
+app.use('/api/order',orderRoute)
