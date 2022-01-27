@@ -34,7 +34,7 @@ const {body} = require('express-validator')
             }
          
         }catch(error){
-           let err = new Error('something is wrong')
+           let err = new Error('Internal Server Error')
            err.status = 500
            next(err)
         }
